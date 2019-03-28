@@ -1,22 +1,38 @@
-import React, { Component } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import './App.scss';
-import io from 'socket.io-client';
-import { LOCAL_URL } from './constants/CONSTANTS';
 
-class App extends Component {
+const App = props => {
 
-  componentDidMount() {
-    const socket = io(LOCAL_URL);
-    socket.once('connect', _ => { console.log('client connected') });
-  }
+  let [count, setCount] = useState(1);
 
-  render() {
-    return (
-      <div className="App">
-        <h1>hello</h1>
+  useEffect(_ => {
+    console.log('rendered');
+    return _ => {
+      console.log('unmounting');
+    }
+  }, []);
+
+  return (
+    <article className="container-fluid main-content">
+
+      {/* <img src={img} className="back-img" /> */}
+
+      <div className="row App">
+
+        <div className="col-md-6 content">
+          <button
+            onClick={e => setCount(++count)}
+            className="btn btn-primary">increament</button>
+          <label>count is {count}</label>
+        </div>
+
+        <div className="col-md-6 bg-primary">
+        </div>
+
       </div>
-    );
-  }
+    </article>
+  );
+
 }
 
-export default App;
+export default memo(App);
