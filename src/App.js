@@ -1,38 +1,62 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import Navbar from './components/navbar/Navbar';
+import Home from './pages/Home';
+import Lost from './pages/Lost';
+import Found from './pages/Found';
+import FoundAdd from './components/add/Found';
+import LostAdd from './components/add/Lost';
+import Sign from './pages/Sign';
+import SignUp from './pages/SignUp';
+import * as $ from 'jquery'
+import { signIn } from './store/actions/actions'
 
-const App = props => {
-
-  let [count, setCount] = useState(1);
+const App = ({ user, logIn }) => {
 
   useEffect(_ => {
-    console.log('rendered');
-    return _ => {
-      console.log('unmounting');
+    const item = localStorage.getItem('car-safe');
+    if (item) {
+      let userInfo = item.split('!');
+      logIn({
+        email: userInfo[0],
+        pass: userInfo[1]
+      })
     }
-  }, []);
+  }, [])
 
   return (
-    <article className="container-fluid main-content">
+    <article className="app">
+      <Navbar />
 
-      {/* <img src={img} className="back-img" /> */}
+      <Switch>
+        <Route path="/signin" component={Sign} />
+        <Route path="/signup" component={SignUp} />
+        {$.isEmptyObject(user) && <Redirect from="/*" to="/signin" />}
+        <Route path="/" exact component={Home} />
+        <Route path="/lost/add" component={LostAdd} />
+        <Route path="/lost" component={Lost} />
+        <Route path="/found/add" component={FoundAdd} />
+        <Route path="/found" component={Found} />
+        {!$.isEmptyObject(user) && <Redirect from="/*" to="/" />}
+      </Switch>
 
-      <div className="row App">
-
-        <div className="col-md-6 content">
-          <button
-            onClick={e => setCount(++count)}
-            className="btn btn-primary">increament</button>
-          <label>count is {count}</label>
-        </div>
-
-        <div className="col-md-6 bg-primary">
-        </div>
-
-      </div>
-    </article>
+    </article >
   );
 
 }
 
-export default memo(App);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logIn: (info) => { dispatch(signIn(info)) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
