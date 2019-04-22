@@ -9,17 +9,17 @@ module.exports = {
     REDUX_SIGN: 'REDUX_SIGN',
     REDUX_ROUTER: 'REDUX_ROUTER',
 
-    BASE_URL_HELPERS: 'http://localhost:8000/helpers',
-    BASE_URL_USER: 'http://localhost:8000/user',
-    BASE_URL_FOUND: 'http://localhost:8000/found',
-    BASE_URL_LOST: 'http://localhost:8000/lost',
+    // BASE_URL_HELPERS: 'http://localhost:8000/helpers',
+    // BASE_URL_USER: 'http://localhost:8000/user',
+    // BASE_URL_FOUND: 'http://localhost:8000/found',
+    // BASE_URL_LOST: 'http://localhost:8000/lost',
     // till this ****************************************************
 
     // base links 
-    // BASE_URL_HELPERS: 'https://mighty-refuge-93855.herokuapp.com/helpers',
-    // BASE_URL_USER: 'https://mighty-refuge-93855.herokuapp.com/user',
-    // BASE_URL_FOUND: 'https://mighty-refuge-93855.herokuapp.com/found',
-    // BASE_URL_LOST: 'https://mighty-refuge-93855.herokuapp.com/lost',
+    BASE_URL_HELPERS: 'https://mighty-refuge-93855.herokuapp.com/helpers',
+    BASE_URL_USER: 'https://mighty-refuge-93855.herokuapp.com/user',
+    BASE_URL_FOUND: 'https://mighty-refuge-93855.herokuapp.com/found',
+    BASE_URL_LOST: 'https://mighty-refuge-93855.herokuapp.com/lost',
 
     // will use BASE_URL_USER
     // sign in link (POST method)
@@ -48,22 +48,22 @@ module.exports = {
     // will use BASE_URL_FOUND or BASE_URL_LOST
     // get all lost reports or found reports link (GET method)
     // sent data NO
-    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand, userEmail) case of lost
-    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, date, color, brand, userEmail) case of found
+    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand, userEmail, isMatch, founderEmail) case of lost
+    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, date, color, brand, userEmail, isMatch) case of found
     GET: '/',
 
     // will use BASE_URL_FOUND or BASE_URL_LOST
     // create lost reports or found reports link (POST method)
     // sent data will be object of (lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand) case of lost
     // sent data will be object of (lic_pla_num, lic_pla_let, address, date, color, brand) case of found
-    // recived data will be object of (reportID, lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand, userEmail) case of lost
-    // recived data will be object of (reportID, lic_pla_num, lic_pla_let, address, date, color, brand, userEmail) case of found
+    // recived data will be object of (reportID, lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand, userEmail, isMatch, founderEmail) case of lost
+    // recived data will be object of (reportID, lic_pla_num, lic_pla_let, address, date, color, brand, userEmail, isMatch) case of found
     ADD: '/add',
 
     // will use BASE_URL_FOUND or BASE_URL_LOST
     // remove lost report or found report link (DELETE method)
     // sent data will be reportID in lost or found 
-    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand, userEmail) case of lost
-    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, date, color, brand, userEmail) case of found
+    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, engine_no, vin_no, date, color, brand, userEmail, isMatch, founderEmail) case of lost
+    // recived data will be array of (reportID, lic_pla_num, lic_pla_let, address, date, color, brand, userEmail, isMatch) case of found
     REMOVE: '/remove/', // after last slash put the reportID
 }
