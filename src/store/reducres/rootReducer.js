@@ -4,9 +4,8 @@ import {
     REDUX_BRANDS,
     REDUX_COLORS,
     REDUX_LOADING,
-    REDUX_SIGNIN,
-    REDUX_SIGNUP,
-    REDUX_SIGNOUT
+    REDUX_SIGN,
+    REDUX_ROUTER
 } from '../constants/CONSTANTS'
 
 const initState = {
@@ -15,6 +14,7 @@ const initState = {
     colors: [],
     brands: [],
     user: {},
+    history: {},
     loading: false
 };
 
@@ -22,6 +22,7 @@ const rootReducer = (state = initState, action) => {
     switch (action.type) {
 
         case REDUX_LOST:
+            console.log(action.value);
             return {
                 ...state,
                 lost: [...action.value]
@@ -50,10 +51,16 @@ const rootReducer = (state = initState, action) => {
                 loading: action.value
             }
 
-        case REDUX_SIGNIN || REDUX_SIGNUP || REDUX_SIGNOUT:
+        case REDUX_SIGN:
             return {
                 ...state,
                 user: { ...action.value }
+            }
+
+        case REDUX_ROUTER:
+            return {
+                ...state,
+                history: action.value
             }
 
         default:

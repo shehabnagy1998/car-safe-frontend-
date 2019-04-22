@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../assets/car-white.png'
-import { Link, Redirect } from 'react-router-dom'
-import * as $ from 'jquery'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../store/actions/actions'
 
@@ -20,7 +19,6 @@ const SignUp = ({ loading, logUp, user }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(fields);
         logUp(fields)
     }
 
@@ -33,7 +31,6 @@ const SignUp = ({ loading, logUp, user }) => {
 
     return (
         <article className="sign">
-            {!$.isEmptyObject(user) && <Redirect from="/signin" to="/" />}
             <section className="container" >
                 <div className="logo-img">
                     <img className="img-fluid" alt="car" src={logo} />
@@ -64,7 +61,7 @@ const SignUp = ({ loading, logUp, user }) => {
                     </div>
                     <div className="form-group">
                         <button type="submit" disabled={loading} className="btn btn-primary btn-block">
-                            {loading ? <span className="spinner-border text-light"></span> : 'Enter'}
+                            {loading ? <span className="spinner-border text-light"></span> : 'Create'}
                         </button>
                     </div>
                     <div className="form-group">

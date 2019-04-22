@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Lost = ({ foundLoad, foundRep, foundDel }) => {
 
     useEffect(_ => {
-        document.title = `Car Safe - Lost`;
+        document.title = `Car Safe - Found`;
         foundLoad()
     }, []);
 

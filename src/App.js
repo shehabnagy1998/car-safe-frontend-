@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.scss';
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home';
@@ -11,9 +11,9 @@ import LostAdd from './components/add/Lost';
 import Sign from './pages/Sign';
 import SignUp from './pages/SignUp';
 import * as $ from 'jquery'
-import { signIn } from './store/actions/actions'
+import { signIn, setHistory } from './store/actions/actions'
 
-const App = ({ user, logIn }) => {
+const App = ({ user, logIn, historySet, history }) => {
 
   useEffect(_ => {
     const item = localStorage.getItem('car-safe');
@@ -24,6 +24,8 @@ const App = ({ user, logIn }) => {
         pass: userInfo[1]
       })
     }
+    historySet(history);
+    console.log(history)
   }, [])
 
   return (
@@ -55,8 +57,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logIn: (info) => { dispatch(signIn(info)) }
+    logIn: (info) => { dispatch(signIn(info)) },
+    historySet: (h) => { dispatch(setHistory(h)) }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

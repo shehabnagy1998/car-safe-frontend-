@@ -6,21 +6,20 @@ module.exports = {
     REDUX_BRANDS: 'REDUX_BRANDS',
     REDUX_ADD_FOUND: 'REDUX_ADD_FOUND',
     REDUX_LOADING: 'REDUX_LOADING',
-    REDUX_SIGNIN: 'REDUX_SIGNIN',
-    REDUX_SIGNUP: 'REDUX_SIGNUP',
-    REDUX_SIGNOUT: 'REDUX_SIGNOUT',
+    REDUX_SIGN: 'REDUX_SIGN',
+    REDUX_ROUTER: 'REDUX_ROUTER',
 
-    // BASE_URL_HELPERS: 'http://localhost:8000/helpers',
-    // BASE_URL_USER: 'http://localhost:8000/user',
-    // BASE_URL_FOUND: 'http://localhost:8000/found',
-    // BASE_URL_LOST: 'http://localhost:8000/lost',
+    BASE_URL_HELPERS: 'http://localhost:8000/helpers',
+    BASE_URL_USER: 'http://localhost:8000/user',
+    BASE_URL_FOUND: 'http://localhost:8000/found',
+    BASE_URL_LOST: 'http://localhost:8000/lost',
     // till this ****************************************************
 
     // base links 
-    BASE_URL_HELPERS: 'https://mighty-refuge-93855.herokuapp.com/helpers',
-    BASE_URL_USER: 'https://mighty-refuge-93855.herokuapp.com/user',
-    BASE_URL_FOUND: 'https://mighty-refuge-93855.herokuapp.com/found',
-    BASE_URL_LOST: 'https://mighty-refuge-93855.herokuapp.com/lost',
+    // BASE_URL_HELPERS: 'https://mighty-refuge-93855.herokuapp.com/helpers',
+    // BASE_URL_USER: 'https://mighty-refuge-93855.herokuapp.com/user',
+    // BASE_URL_FOUND: 'https://mighty-refuge-93855.herokuapp.com/found',
+    // BASE_URL_LOST: 'https://mighty-refuge-93855.herokuapp.com/lost',
 
     // will use BASE_URL_USER
     // sign in link (POST method)

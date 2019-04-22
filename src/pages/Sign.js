@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../assets/car-white.png'
-import { Link, Redirect } from 'react-router-dom'
-import * as $ from 'jquery'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signIn } from '../store/actions/actions'
 
 const Sign = ({ logIn, loading, user }) => {
+    console.log(user)
 
     useEffect(_ => {
         document.title = `Car Safe - Sign`
@@ -31,7 +31,6 @@ const Sign = ({ logIn, loading, user }) => {
 
     return (
         <article className="sign">
-            {!$.isEmptyObject(user) && <Redirect from="/signup" to="/" />}
             <section className="container" >
                 <div className="logo-img">
                     <img className="img-fluid" alt="car" src={logo} />

@@ -17,9 +17,8 @@ import {
     REDUX_BRANDS,
     REDUX_COLORS,
     REDUX_LOADING,
-    REDUX_SIGNIN,
-    REDUX_SIGNUP,
-    REDUX_SIGNOUT,
+    REDUX_SIGN,
+    REDUX_ROUTER
 } from '../constants/CONSTANTS'
 
 
@@ -34,9 +33,10 @@ export const signIn = (info) => {
 
         })
             .then(res => {
-                dispatch({ type: REDUX_LOADING, value: false })
-                dispatch({ type: REDUX_SIGNIN, value: res.data })
-                localStorage.setItem('car-safe', `${info.email}!${info.pass}`)
+                dispatch({ type: REDUX_LOADING, value: false });
+                dispatch({ type: REDUX_SIGN, value: res.data });
+                localStorage.setItem('car-safe', `${info.email}!${info.pass}`);
+                getState().history.push('/');
             })
             .catch(err => {
                 if (err.response) {
@@ -60,9 +60,10 @@ export const signUp = (info) => {
 
         })
             .then(res => {
-                dispatch({ type: REDUX_LOADING, value: false })
-                dispatch({ type: REDUX_SIGNUP, value: res.data })
-                localStorage.setItem('car-safe', `${info.email}!${info.pass}`)
+                dispatch({ type: REDUX_LOADING, value: false });
+                dispatch({ type: REDUX_SIGN, value: res.data });
+                localStorage.setItem('car-safe', `${info.email}!${info.pass}`);
+                getState().history.push('/');
             })
             .catch(err => {
                 if (err.response) {
@@ -77,9 +78,9 @@ export const signUp = (info) => {
 
 export const signOut = () => {
     return (dispatch, getState) => {
-        dispatch({ type: REDUX_SIGNOUT, value: {} })
+        dispatch({ type: REDUX_SIGN, value: {} })
         localStorage.removeItem('car-safe')
-        window.location = '/signin'
+        getState().history.push('/signin')
     }
 }
 
@@ -113,7 +114,7 @@ export const addLost = (report) => {
         })
             .then(res => {
                 dispatch({ type: REDUX_LOADING, value: false })
-                window.location = '/'
+                getState().history.push('/lost')
             })
             .catch(err => {
                 if (err.response) {
@@ -172,7 +173,7 @@ export const addFound = (report) => {
         })
             .then(res => {
                 dispatch({ type: REDUX_LOADING, value: false })
-                window.location = '/'
+                getState().history.push('/found')
             })
             .catch(err => {
                 if (err.response) {
@@ -228,5 +229,11 @@ export const loadBrands = () => {
             .catch(err => {
                 console.log(err)
             })
+    }
+}
+
+export const setHistory = (h) => {
+    return (dispatch, getState) => {
+        dispatch({ type: REDUX_ROUTER, value: h })
     }
 }

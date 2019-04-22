@@ -9,7 +9,7 @@ const Reports = ({ reports, lostDel }) => {
                     return (
                         <div className="col-lg-4" key={report.reportID}>
                             <div className="card report">
-                                <div className="card-header">
+                                <div className={`card-header ${report.isMatch ? 'bg-primary' : ''}`}>
                                     <h4 >{report.brand}</h4>
                                     <button className="btn btn-danger"
                                         onClick={_ => { lostDel(report.reportID) }}>&times;</button>
@@ -20,6 +20,7 @@ const Reports = ({ reports, lostDel }) => {
                                     <p className="card-subtitle">Engine #: {report.engine_no}</p>
                                     <p className="card-subtitle">Vin #: {report.vin_no}</p>
                                     <p className="card-subtitle">Color: {report.color}</p>
+                                    {report.isMatch && <p className="card-subtitle text-center">your car has been found contact with this email {report.founderEmail}</p>}
                                 </div>
                                 <div className="card-footer text-muted">
                                     {moment(report.date).format('DD-MM-YYYY ')}

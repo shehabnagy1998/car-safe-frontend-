@@ -9,7 +9,7 @@ const Reports = ({ reports, foundDel }) => {
                     return (
                         <div className="col-lg-4" key={index}>
                             <div className="card report">
-                                <div className="card-header">
+                                <div className={`card-header ${report.isMatch ? 'bg-primary' : ''}`}>
                                     <h4 >{report.brand}</h4>
                                     <button className="btn btn-danger"
                                         onClick={_ => { foundDel(report.reportID) }}>&times;</button>
@@ -18,6 +18,7 @@ const Reports = ({ reports, foundDel }) => {
                                     <p className="card-subtitle">Address: {report.address}</p>
                                     <p className="card-subtitle">License plate: {report.lic_pla_num}{report.lic_pla_let}</p>
                                     <p className="card-subtitle">Color: {report.color}</p>
+                                    {report.isMatch && <p className="card-subtitle text-center">you helped someone to retrive a car</p>}
                                 </div>
                                 <div className="card-footer text-muted">
                                     {moment(report.date).format('DD-MM-YYYY')}
