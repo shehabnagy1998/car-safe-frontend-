@@ -25,7 +25,9 @@ const Lost = ({ foundLoad, foundRep, foundDel }) => {
                         <div className="card report">
                             <div className="card-body add">
                                 <h3>Add Report</h3>
-                                <Link to="/found/add" className="btn btn-primary"><FontAwesomeIcon icon={faPlus} /></Link>
+                                <Link to="/found/add" className="btn btn-primary">
+                                    <FontAwesomeIcon icon={faPlus} />
+                                </Link>
                             </div>
                         </div>
                     </div>

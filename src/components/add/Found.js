@@ -14,7 +14,7 @@ const FoundAdd = ({ colors, brands, colorsLoad, brandsLoad, foundAdd, loading })
         lic_pla_num: '',
         lic_pla_let: '',
         date: '',
-        address: '',
+        phone: '',
         color: '',
         brand: ''
     });
@@ -38,34 +38,53 @@ const FoundAdd = ({ colors, brands, colorsLoad, brandsLoad, foundAdd, loading })
 
                 <form onSubmit={handleSubmit}>
                     <section className="form-group row">
-                        <label className="col-sm-2 col-form-label">License Plate:</label>
+                        <label className="col-sm-2 col-form-label">
+                            License Plate:
+                        </label>
                         <div className="col-6 col-sm-5">
-                            <input className="form-control" placeholder="letters" pattern="^[a-zA-Z]{3}$" maxLength="3" onChange={handleChange} id="lic_pla_let" type="text" required />
+                            <input className="form-control"
+                                placeholder="letters"
+                                pattern="^[a-zA-Z]{3}$"
+                                maxLength="3" onChange={handleChange}
+                                id="lic_pla_let" type="text" required />
                         </div>
                         <div className="col-6 col-sm-5">
-                            <input className="form-control" placeholder="numbers" max="9999" onChange={handleChange} id="lic_pla_num" type="number" required />
+                            <input className="form-control"
+                                placeholder="numbers" max="9999"
+                                onChange={handleChange} id="lic_pla_num"
+                                type="number" required />
                         </div>
                     </section>
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">Date:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="when you found the car" onChange={handleChange} id="date" type="date" required />
+                            <input className="form-control"
+                                placeholder="when you found the car"
+                                onChange={handleChange} id="date" type="date" required />
                         </div>
                     </section>
                     <section className="form-group row">
-                        <label className="col-sm-2 col-form-label">Address:</label>
+                        <label className="col-sm-2 col-form-label">Phone:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="where you found the car?" onChange={handleChange} id="address" type="text" required />
+                            <input className="form-control"
+                                placeholder="number we can contact with?"
+                                onChange={handleChange} id="phone"
+                                type="number" required />
                         </div>
                     </section>
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">Color:</label>
                         <div className="col-sm-10">
-                            <select id="color" onChange={handleChange} className="custom-select" required >
+                            <select id="color" onChange={handleChange}
+                                className="custom-select" required >
                                 <option value="">car color...</option>
                                 {colors.length >= 1 && colors.map(color => {
                                     return (
-                                        <option key={color.colorID} value={color.color_name} style={{ background: color.color_name }}>{color.color_name}</option>
+                                        <option key={color.colorID}
+                                            value={color.color_name}
+                                            style={{ background: color.color_name }}>
+                                            {color.color_name}
+                                        </option>
                                     )
                                 })}
                             </select>
@@ -74,11 +93,15 @@ const FoundAdd = ({ colors, brands, colorsLoad, brandsLoad, foundAdd, loading })
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">Brand:</label>
                         <div className="col-sm-10">
-                            <select id="brand" onChange={handleChange} className="custom-select" required >
+                            <select id="brand" onChange={handleChange}
+                                className="custom-select" required >
                                 <option value="">car brand...</option>
                                 {brands.length >= 1 && brands.map(brand => {
                                     return (
-                                        <option key={brand.brandID} value={brand.brand_name}>{brand.brand_name}</option>
+                                        <option key={brand.brandID}
+                                            value={brand.brand_name}>
+                                            {brand.brand_name}
+                                        </option>
                                     )
                                 })}
                             </select>

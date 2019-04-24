@@ -15,10 +15,14 @@ const Reports = ({ reports, foundDel }) => {
                                         onClick={_ => { foundDel(report.reportID) }}>&times;</button>
                                 </div>
                                 <div className="card-body">
-                                    <p className="card-subtitle">Address: {report.address}</p>
-                                    <p className="card-subtitle">License plate: {report.lic_pla_num}{report.lic_pla_let}</p>
+                                    <p className="card-subtitle">Phone: {report.phone}</p>
+                                    <p className="card-subtitle">
+                                        License plate: {report.lic_pla_num}{report.lic_pla_let}
+                                    </p>
                                     <p className="card-subtitle">Color: {report.color}</p>
-                                    {report.isMatch && <p className="card-subtitle text-center">you helped someone to retrive a car</p>}
+                                    {report.isMatch && <p className="card-subtitle text-center">
+                                        you helped someone to retrive a car
+                                        </p>}
                                 </div>
                                 <div className="card-footer text-muted">
                                     {moment(report.date).format('DD-MM-YYYY')}

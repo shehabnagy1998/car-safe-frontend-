@@ -15,12 +15,16 @@ const Reports = ({ reports, lostDel }) => {
                                         onClick={_ => { lostDel(report.reportID) }}>&times;</button>
                                 </div>
                                 <div className="card-body">
-                                    <p className="card-subtitle">Address: {report.address}</p>
-                                    <p className="card-subtitle">License plate: {report.lic_pla_num}{report.lic_pla_let}</p>
+                                    <p className="card-subtitle">Phone: {report.phone}</p>
+                                    <p className="card-subtitle">
+                                        License plate: {report.lic_pla_num}{report.lic_pla_let}
+                                    </p>
                                     <p className="card-subtitle">Engine #: {report.engine_no}</p>
                                     <p className="card-subtitle">Vin #: {report.vin_no}</p>
                                     <p className="card-subtitle">Color: {report.color}</p>
-                                    {report.isMatch && <p className="card-subtitle text-center">your car has been found contact with this email {report.founderEmail}</p>}
+                                    {report.isMatch && <p className="card-subtitle text-center">
+                                        your car has been found contact with this phone {report.founderPhone}
+                                    </p>}
                                 </div>
                                 <div className="card-footer text-muted">
                                     {moment(report.date).format('DD-MM-YYYY ')}

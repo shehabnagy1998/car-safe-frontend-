@@ -102,15 +102,11 @@ export const loadLost = () => {
 export const addLost = (report) => {
     return (dispatch, getState) => {
         dispatch({ type: REDUX_LOADING, value: true })
-        let newReport = {
-            ...report,
-            userEmail: getState().user.email
-        };
         axios({
             baseURL: BASE_URL_LOST,
             url: ADD,
             method: 'POST',
-            data: newReport
+            data: report
         })
             .then(res => {
                 dispatch({ type: REDUX_LOADING, value: false })
@@ -161,15 +157,11 @@ export const loadFound = () => {
 export const addFound = (report) => {
     return (dispatch, getState) => {
         dispatch({ type: REDUX_LOADING, value: true });
-        let newReport = {
-            ...report,
-            userEmail: getState().user.email
-        };
         axios({
             baseURL: BASE_URL_FOUND,
             url: ADD,
             method: 'POST',
-            data: newReport
+            data: report
         })
             .then(res => {
                 dispatch({ type: REDUX_LOADING, value: false })

@@ -13,7 +13,7 @@ const LostAdd = ({ colors, brands, colorsLoad, brandsLoad, lostAdd, loading }) =
     const [fields, setFields] = useState({
         lic_pla_num: '',
         lic_pla_let: '',
-        address: '',
+        phone: '',
         engine_no: '',
         vin_no: '',
         date: '',
@@ -36,40 +36,49 @@ const LostAdd = ({ colors, brands, colorsLoad, brandsLoad, lostAdd, loading }) =
     return (
         <article className="add">
             <section className="container">
-                <h2 className="title"><span>Add found</span> car report</h2>
+                <h2 className="title"><span>Add lost</span> car report</h2>
 
                 <form onSubmit={handleSubmit}>
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">License Plate:</label>
                         <div className="col-6 col-sm-5">
-                            <input className="form-control" placeholder="letters" maxLength="3" pattern="^[a-zA-Z]{3}$" onChange={handleChange} id="lic_pla_let" type="text" required />
+                            <input className="form-control" placeholder="letters"
+                                maxLength="3" pattern="^[a-zA-Z]{3}$"
+                                onChange={handleChange} id="lic_pla_let"
+                                type="text" required />
                         </div>
                         <div className="col-6 col-sm-5">
-                            <input className="form-control" placeholder="numbers" max="9999" onChange={handleChange} id="lic_pla_num" type="number" required />
+                            <input className="form-control" placeholder="numbers"
+                                max="9999" onChange={handleChange}
+                                id="lic_pla_num" type="number" required />
                         </div>
                     </section>
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">Date:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="when you lost the car" onChange={handleChange} id="date" type="date" required />
+                            <input className="form-control" placeholder="when you lost the car"
+                                onChange={handleChange} id="date" type="date" required />
                         </div>
                     </section>
                     <section className="form-group row">
-                        <label className="col-sm-2 col-form-label">Address:</label>
+                        <label className="col-sm-2 col-form-label">Phone:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="where you lost the car?" onChange={handleChange} id="address" type="text" required />
+                            <input className="form-control" placeholder="phone we can contact with?"
+                                onChange={handleChange} id="phone" type="number" required />
                         </div>
                     </section>
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">Vin number:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="vin number of your car" onChange={handleChange} id="vin_no" type="number" required />
+                            <input className="form-control" placeholder="vin number of your car"
+                                onChange={handleChange} id="vin_no" type="number" required />
                         </div>
                     </section>
                     <section className="form-group row">
                         <label className="col-sm-2 col-form-label">Engine number:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="engine number of your car" onChange={handleChange} id="engine_no" type="number" required />
+                            <input className="form-control" placeholder="engine number of your car"
+                                onChange={handleChange} id="engine_no" type="number" required />
                         </div>
                     </section>
                     <section className="form-group row">
@@ -79,7 +88,8 @@ const LostAdd = ({ colors, brands, colorsLoad, brandsLoad, lostAdd, loading }) =
                                 <option value="">car color...</option>
                                 {colors.length >= 1 && colors.map(color => {
                                     return (
-                                        <option key={color.colorID} value={color.color_name} style={{ background: color.color_name }}>{color.color_name}</option>
+                                        <option key={color.colorID} value={color.color_name}
+                                            style={{ background: color.color_name }}>{color.color_name}</option>
                                     )
                                 })}
                             </select>
@@ -92,7 +102,10 @@ const LostAdd = ({ colors, brands, colorsLoad, brandsLoad, lostAdd, loading }) =
                                 <option value="">car brand...</option>
                                 {brands.length >= 1 && brands.map(brand => {
                                     return (
-                                        <option key={brand.brandID} value={brand.brand_name}>{brand.brand_name}</option>
+                                        <option key={brand.brandID}
+                                            value={brand.brand_name}>
+                                            {brand.brand_name}
+                                        </option>
                                     )
                                 })}
                             </select>
