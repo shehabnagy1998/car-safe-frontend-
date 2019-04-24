@@ -131,6 +131,7 @@ export const deleteLost = (id) => {
             method: 'DELETE'
         })
             .then(res => {
+                console.log(res.data)
                 dispatch({ type: REDUX_LOST, value: res.data })
             })
             .catch(err => {

@@ -42,21 +42,25 @@ const SignUp = ({ loading, logUp, user }) => {
                     <div className="form-group">
                         <input className="form-input"
                             onChange={handleChange} required
+                            pattern="^[a-z0-9\._]{3,}@[a-z]{3,5}\.[a-z]{2,3}$"
                             placeholder="Email" type="email" id="email" />
                     </div>
                     <div className="form-group">
                         <input className="form-input"
                             onChange={handleChange} required minLength="8"
+                            pattern="^[a-z0-9A-Z]{8,}$"
                             placeholder="Password" type="password" id="pass" />
                     </div>
                     <div className="form-group">
                         <input className="form-input"
                             onChange={handleChange} required
+                            pattern="^[a-z]{4,}$"
                             placeholder="Government" type="text" id="government" />
                     </div>
                     <div className="form-group">
                         <input className="form-input"
                             onChange={handleChange} required minLength="11"
+                            pattern="^[0-9]{11}$"
                             placeholder="Phone number" type="number" id="phone" />
                     </div>
                     <div className="form-group">

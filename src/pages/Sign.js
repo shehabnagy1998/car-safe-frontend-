@@ -42,6 +42,7 @@ const Sign = ({ logIn, loading, user }) => {
                     <div className="form-group">
                         <input className="form-input"
                             placeholder="Email"
+                            pattern="^[a-z0-9\._]{3,}@[a-z]{3,5}\.[a-z]{2,3}$"
                             onChange={handleChange}
                             type="email" id="email" required />
                     </div>
@@ -49,6 +50,7 @@ const Sign = ({ logIn, loading, user }) => {
                         <input className="form-input"
                             placeholder="Password"
                             minLength="8"
+                            pattern="^[a-z0-9A-Z]{8,}$"
                             onChange={handleChange}
                             type="password" id="pass" required />
                     </div>
